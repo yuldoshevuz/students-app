@@ -1,0 +1,59 @@
+<div class="content-wrapper">
+  {{>content-header}}
+  
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <form action="/payments/add" method="post">
+                            <div class="card-body">
+                                {{#if error}}
+                                    <div class="alert alert-danger">{{error}}</div>
+                                {{/if}}
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label for="studentId">Talaba</label>
+                                        <select name="studentId" id="studentId" class="form-control">
+                                            <option value="null" selected disabled>Talabani tanlang</option>
+                                            {{#if users}}
+                                                {{#each users}}
+                                                    <option value="{{this.id}}">{{this.full_name}}</option>
+                                                {{/each}}
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-12 mb-3">
+                                        <label for="amount">To'lov miqdori</label>
+                                        <input type="number" class="form-control" id="amount" name="amount" placeholder="500 000" />
+                                    </div>
+                                    <div class="col-lg-6 col-12 mb-3">
+                                        <label for="currency">To'lov valyutasi</label>
+                                        <select {{#unless currencies}}disabled{{/unless}} name="currencyId" id="currency" class="form-control" {{#if currencies}}style="text-transform: uppercase;"{{/if}}>
+                                            {{#if currencies}}
+                                                {{#each currencies}}
+                                                <option value="{{this.id}}">{{this.currency}}</option>
+                                                {{/each}}
+
+                                                {{else}}
+                                                <option value="null" selected>Valyuta topilmadi</option>
+                                            {{/if}}
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="comment">Izoh</label>
+                                        <textarea name="comment" id="comment" rows="3" class="form-control" placeholder="Izoh (ixtiyoriy)"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

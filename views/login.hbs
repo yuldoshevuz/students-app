@@ -1,0 +1,51 @@
+<div class="login-box">
+    <div class="login-logo">
+        O'quvchi kabineti
+    </div>
+
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Kirish</p>
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+            <form action="/login" method="post" autocomplete="off">
+                <div class="input-group mb-3">
+                    {{!-- <input type="text" name="username" class="form-control" placeholder="Login" value="{{loginVal}}"> --}}
+                    <select name="username" class="form-control" id="username">
+                        <option value="" disabled selected>Foydalanuvchini tanlang</option>
+                        {{#each users}}
+                           <option value="   {{this.username}}   ">{{this.full_name}}</option>
+                        {{/each}}
+                    </select>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Parol">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block">Kirish</button>
+                    </div>
+                </div>
+            </form>
+
+            <p class="mb-1">
+                <a href="#">Parolni unutdim</a>
+            </p>
+            <p class="mb-0">
+                <a href="#" class="text-center">Ro'yxatdan o'tish</a>
+            </p>
+        </div>
+
+    </div>
+</div>

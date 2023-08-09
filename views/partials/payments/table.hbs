@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Miqdor</th>
+            <th>Vaqti</th>
+            <th>Izoh</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each payments}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{userName this.user_id}}</td>
+            <td>{{getFullAmount type=this.type amount=this.amount}} {{this.currency}}</td>
+            <td>{{parseDate this.created_at}}</td>
+            <td>{{this.comment}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

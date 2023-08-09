@@ -1,0 +1,17 @@
+<div class="content-wrapper">
+    {{>content-header}}
+    
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    {{#if payments}}
+                    {{>payments/table}}
+                    {{else}}
+                    <h2>To'lovlar topilmadi</h2>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
