@@ -127,6 +127,6 @@ app.get('/logout', authCheck.isAuth, (req, res) => {
     res.redirect('/login')
 })
 
-app.listen(5001, () => {
+app.listen(port, () => {
     console.log('Server running on port:', port)
 })
